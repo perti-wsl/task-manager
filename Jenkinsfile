@@ -5,12 +5,12 @@ pipeline {
     skipDefaultCheckout(true)
   }
 
-  stage('Checkout') {
-  steps {
-    cleanWs()
-    checkout scm
-  }
-}
+  stages {
+    stage('Checkout') {
+      steps {
+        cleanWs()
+        checkout scm
+      }
     }
 
     stage('Install Backend') {
