@@ -74,5 +74,15 @@ pipeline {
     bat 'docker compose up --build -d'
   }
 }
+stage('Verify Backend Health') {
+  steps {
+    powershell '''
+      $response = Invoke-WebRequest -Uri "http://localhost:5000/health" -UseBasicParsing
+      if ($response.StatusCode -ne 200) {
+        throw "Backend health check failed"
+      }
+    '''
+  }
+}
   }
 }
