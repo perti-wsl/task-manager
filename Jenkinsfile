@@ -1,20 +1,14 @@
 pipeline {
   agent any
 
-  stages {
-    stage('Checkout Backend') {
-      steps {
-        dir('task-manager-backend') {
-          git branch: 'development', url: 'https://github.com/perti-wsl/task-manager-backend.git'
-        }
-      }
-    }
+  options {
+    skipDefaultCheckout(true)
+  }
 
-    stage('Checkout Frontend') {
+  stages {
+    stage('Checkout') {
       steps {
-        dir('task-manager-frontend') {
-          git branch: 'development', url: 'https://github.com/perti-wsl/task-manager-backend.git'
-        }
+        checkout scm
       }
     }
 
