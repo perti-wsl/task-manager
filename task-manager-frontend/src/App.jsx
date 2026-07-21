@@ -80,9 +80,15 @@ function App() {
 
   useEffect(() => {
   const fetchTasks = async () => {
-    await loadTasks()
+    try {
+      const response = await fetch('http://localhost:3000/tasks')
+      const data = await response.json()
+      setTasks(data)
+    } catch (error) {
+      console.error(error)
+    }
   }
-
+  
   fetchTasks()
 }, [])
 
