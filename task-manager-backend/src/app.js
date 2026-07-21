@@ -92,5 +92,7 @@ app.delete('/tasks/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete task' });
   }
 });
-
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' })
+})
 module.exports = app;
