@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: '700px', margin: '40px auto', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Task Manager</h1>
+      <h1>Tasks Manager</h1>
 
       <form onSubmit={addTask} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <input
