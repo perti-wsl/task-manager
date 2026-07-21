@@ -2,6 +2,7 @@ pipeline {
   agent any
 
   options {
+    buildDiscarder(logRotator(numToKeepStr: '10'))
     skipDefaultCheckout(true)
   }
 
@@ -84,5 +85,9 @@ stage('Verify Backend Health') {
     '''
   }
 }
+  }
+}post {
+  always {
+    cleanWs()
   }
 }
